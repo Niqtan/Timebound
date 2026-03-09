@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://rn177ewfbjv5"]
+
+[ext_resource type="PackedScene" uid="uid://cm4vsg4h372xi" path="res://Scenes/SupportScenes/game_map.tscn" id="1_8qim7"]
+[ext_resource type="PackedScene" uid="uid://cgkrephbinqn2" path="res://Scenes/PlayerScenes/player.tscn" id="2_sy2fw"]
+[ext_resource type="PackedScene" uid="uid://da3g62073tpiu" path="res://Scenes/SupportScenes/quest_item.tscn" id="3_qjdn2"]
+
+[node name="SceneHandler" type="Node2D"]
+
+[node name="GameMap" parent="." instance=ExtResource("1_8qim7")]
+
+[node name="Player" parent="." instance=ExtResource("2_sy2fw")]
+position = Vector2(49, 127)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-49, -127)
+
+[node name="QuestItem" parent="." instance=ExtResource("3_qjdn2")]
+position = Vector2(94, 115)
