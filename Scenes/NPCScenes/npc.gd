@@ -14,7 +14,6 @@ var is_roaming = true
 var is_chatting = false
 
 var player 
-var player_in_zone = false
 
 enum {
 	IDLE,
@@ -48,7 +47,8 @@ func _process(delta: float) -> void:
 			MOVE:
 				move(delta)
 	
-	if Input.is_action_just_pressed("chat"):
+	if Input.is_action_just_pressed("chat") and Global.player_in_zone:
+		$Dialogue.start()
 		is_roaming = false
 		is_chatting = true
 		play_anim("idle")
@@ -69,15 +69,21 @@ func play_anim(anim_name):
 
 
 func _on_chat_detection_area_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
+	if body.name == "Player":
 		player = body
-		player_in_zone = true
+		Global.player_in_zone = true
 
 func _on_chat_detection_area_body_exited(body: Node2D) -> void:
-	if body.has_method("player"):
-		player_in_zone = false
+	if body.name == "Player":
+		Global.player_in_zone = false
+		$Dialogue.reset()
 
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = choose([0.5, 1, 1.5])
 	current_state = choose([IDLE, NEW_DIR, MOVE])
+
+
+func _on_dialogue_dialogue_finished() -> void:
+	is_chatting = false
+	is_roaming = true 
