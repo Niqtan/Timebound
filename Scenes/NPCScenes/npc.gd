@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var dialogue_id: String = ""
+@export var context: String = ""
+
 @onready var body_animated_sprite = $Body
 @onready var outfit_animated_sprite = $Outfit
 @onready var hair_animated_sprite = $Hair
@@ -13,6 +16,7 @@ var start_pos
 var is_roaming = true
 var is_chatting = false
 
+
 var player 
 
 enum {
@@ -24,6 +28,13 @@ enum {
 func _ready() -> void:
 	randomize()
 	start_pos = position
+	
+	var interactible_scene = Constants.PACKED_GENERAL_SCENES.interactible_scene.instantiate()
+	interactible_scene.dialogue_id = dialogue_id
+	interactible_scene.context = context
+	add_child(interactible_scene)
+	
+	interactible_scene.dialogue_finished.connect(_on_dialogue_dialogue_finished)
 
 func _process(delta: float) -> void:
 	if current_state == 0 or current_state == 1:

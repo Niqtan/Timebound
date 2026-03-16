@@ -1,10 +1,9 @@
-[gd_scene load_steps=83 format=3 uid="uid://yg566tajuknf"]
+[gd_scene load_steps=82 format=3 uid="uid://yg566tajuknf"]
 
 [ext_resource type="Texture2D" uid="uid://ck78sijatkyq2" path="res://Resources/Characters/CharacterModel/Character Model.png" id="1_7afyc"]
 [ext_resource type="Script" uid="uid://t8xl1b6ukec3" path="res://Scenes/NPCScenes/npc.gd" id="1_48xtc"]
 [ext_resource type="Texture2D" uid="uid://cj5rqb2pj7y54" path="res://Resources/Characters/Outfits/Outfit5.png" id="3_12d0n"]
 [ext_resource type="Texture2D" uid="uid://chofk5by8t431" path="res://Resources/Characters/Hair/Hairs.png" id="3_48xtc"]
-[ext_resource type="PackedScene" uid="uid://cqfbvta5vefa5" path="res://Scenes/DialogueScenes/interactable.tscn" id="5_12d0n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54hq1"]
 atlas = ExtResource("1_7afyc")
@@ -606,6 +605,7 @@ radius = 8.0
 
 [node name="NPC" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_48xtc")
+dialogue_id = "unknown_man"
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gtgus")
@@ -626,7 +626,5 @@ shape = SubResource("CapsuleShape2D_7afyc")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="Interactable" parent="." instance=ExtResource("5_12d0n")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

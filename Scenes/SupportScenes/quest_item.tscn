@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://da3g62073tpiu"]
 
 [ext_resource type="Script" uid="uid://m43vtnvuko6n" path="res://Scenes/SupportScenes/quest_item.gd" id="1_e01s0"]
-[ext_resource type="Texture2D" uid="uid://dkbi3e7xb78pm" path="res://Resources/Chess/pixel chess_v1.2/boards/board_persp_04.png" id="2_s3vrn"]
+[ext_resource type="Texture2D" uid="uid://dyoy8xobchgyg" path="res://Resources/Chess/pixel chess_v1.2/boards/board_plain_04.png" id="2_ng8ei"]
 [ext_resource type="PackedScene" uid="uid://cqfbvta5vefa5" path="res://Scenes/DialogueScenes/interactable.tscn" id="3_ng8ei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s3vrn"]
@@ -9,6 +9,9 @@ size = Vector2(28, 21)
 
 [node name="QuestItem" type="StaticBody2D"]
 script = ExtResource("1_e01s0")
+dialogue_id = "chess_board"
+context = "chess"
+item_sprite = ExtResource("2_ng8ei")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14, 13.5)
@@ -17,7 +20,7 @@ shape = SubResource("RectangleShape2D_s3vrn")
 
 [node name="QuestSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_s3vrn")
+texture = ExtResource("2_ng8ei")
 centered = false
 region_rect = Rect2(18, 16, 33, 38)
 

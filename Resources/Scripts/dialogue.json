@@ -1,6 +1,13 @@
-[
+{
+"unknown_man": [
 	{"name": "???", "text": "Hello there!"},
 	{"name": "You", "text": "GOO GOO GA GA"},
 	{"name": "???", "text": "I'll name you, 'Niq', what do you say?"},
-	{"name": "Narrator", "text": "Well, well, well"}
+	{"name": "Niq", "text": "GOO GOO GA GA?"}
+],
+"chess_board": [
+	{"name": "chessboard", "text": "the chessboard on the ground"},
+	{"name": "You", "text": "hmm?"},
+	{"name": "chessboard", "text": "the chessboard invites you to play"},
 ]
+}

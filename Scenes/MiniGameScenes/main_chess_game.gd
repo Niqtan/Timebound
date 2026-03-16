@@ -1,12 +1,11 @@
 extends Node2D
 
-const PIECE_SCENE = Constants.PACKED_MINI_GAME_SCENE_PATHS.chess_piece
+const PIECE_SCENE = Constants.PACKED_MINI_GAME_SCENE_PATHS["chess_piece"]
 const WHITE_KING = preload("res://Resources/Chess/pixel chess_v1.2/16x32 pieces/W_King.png")
 const BLACK_QUEEN = preload("res://Resources/Chess/pixel chess_v1.2/16x32 pieces/B_Queen.png")
 
 @onready var pieces = $Pieces
 const TILE_SIZE = 32
-
 
 var white_king_pos = Vector2i(6, 6)
 var black_queen_pos = Vector2i(0, 4)
@@ -29,12 +28,13 @@ func _ready() -> void:
 	var zoom_factor = viewport_size / board_size
 	
 	$Camera2D.zoom = Vector2(0.7 / zoom_factor, 0.7 / zoom_factor)
+	
 		
 	spawn_piece(WHITE_KING, white_king_pos)
 	spawn_piece(BLACK_QUEEN, black_queen_pos)
 
 func spawn_piece(texture: Texture2D, board_pos: Vector2i):
-	var p = PIECE_SCENE.instantiate()
+	var p = load(PIECE_SCENE).instantiate()
 	pieces.add_child(p)
 	
 	p.set_texture(texture)
@@ -95,6 +95,7 @@ func is_king_check() -> bool:
 func check_winning_conditions() -> bool:
 	if is_king_check():
 		print("King is in check!")
+		get_tree().change_scene_to_packed(Constants.PACKED_GENERAL_SCENES.main_scene)
 		return true
 		
 	return false

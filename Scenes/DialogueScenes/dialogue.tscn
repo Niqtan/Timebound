@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk2smwijcagky"]
 
-[ext_resource type="Texture2D" uid="uid://ddbhfrvht2otp" path="res://Resources/Tilemap/Home/TilesHouse.png" id="1_sa1hk"]
 [ext_resource type="Script" uid="uid://des5knni6f801" path="res://Scenes/DialogueScenes/dialogue.gd" id="1_ykhtq"]
+[ext_resource type="Texture2D" uid="uid://ct537l6fgqabr" path="res://Resources/Dialogue Assets/SpeechBubble1.png" id="2_ykhtq"]
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3
@@ -16,22 +16,27 @@ offset_left = -20.0
 offset_top = -46.0
 offset_right = 20.0
 offset_bottom = -6.0
-texture = ExtResource("1_sa1hk")
-region_rect = Rect2(464, 80, 48, 64)
+texture = ExtResource("2_ykhtq")
+region_rect = Rect2(5, 4, 22, 17)
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
-offset_top = 4.0
-offset_right = 87.49999
-offset_bottom = 44.0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 94.49999
+offset_bottom = 45.0
 scale = Vector2(0.4, 0.4)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 14
 text = "Name"
 
 [node name="Text" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 12.0
-offset_right = 134.33333
-offset_bottom = 52.0
+offset_left = 8.0
+offset_top = 14.0
+offset_right = 141.33333
+offset_bottom = 66.0
 scale = Vector2(0.25, 0.25)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 12
 text = "Chatting..."

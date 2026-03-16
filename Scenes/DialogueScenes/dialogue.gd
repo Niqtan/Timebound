@@ -4,20 +4,23 @@ extends Control
 
 signal dialogue_finished
 
+var all_dialogue = {}
 var dialogue = []
 var current_dialogue_id = 0
 var d_active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var file = FileAccess.open("res://Resources/Scripts/dialogue.json", FileAccess.READ)
+	all_dialogue = JSON.parse_string(file.get_as_text())
 	$NinePatchRect.visible = false
 	
-func start():
+func start(id: String):
 	if d_active:
 		return
 	d_active = true
 	$NinePatchRect.visible = true
-	dialogue = load_dialogue()
+	dialogue = all_dialogue[id]
 	current_dialogue_id = -1
 	next_script()
 
@@ -25,11 +28,6 @@ func reset():
 	current_dialogue_id = -1
 	d_active = false
 	$NinePatchRect.visible = false
-
-func load_dialogue():
-	var file = FileAccess.open("res://Resources/Scripts/dialogue.json", FileAccess.READ)
-	var content = JSON.parse_string(file.get_as_text())
-	return content
 
 func _input(event):
 	if !d_active:

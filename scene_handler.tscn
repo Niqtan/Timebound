@@ -29,3 +29,22 @@ text = "play some chess!"
 
 [node name="NPC" parent="." instance=ExtResource("4_cidb5")]
 position = Vector2(114, 294)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 30.999996
+offset_top = 265.0
+offset_right = 176.76276
+offset_bottom = 370.08475
+scale = Vector2(0.295, 0.295)
+text = "press e to interact
+press space to continue"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 31.999992
+offset_top = 36.0
+offset_right = 333.69495
+offset_bottom = 141.08475
+scale = Vector2(0.295, 0.295)
+text = "TIMEBOUND
+A GAME, DOCUMENTING NIQ's
+LIFE"
