@@ -47,11 +47,6 @@ func _process(delta: float) -> void:
 			MOVE:
 				move(delta)
 	
-	if Input.is_action_just_pressed("chat") and Global.player_in_zone:
-		$Dialogue.start()
-		is_roaming = false
-		is_chatting = true
-		play_anim("idle")
 				
 func choose(array):
 	array.shuffle()
@@ -66,18 +61,6 @@ func play_anim(anim_name):
 	outfit_animated_sprite.play(anim_name)
 	hair_animated_sprite.play(anim_name)
 	
-
-
-func _on_chat_detection_area_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		player = body
-		Global.player_in_zone = true
-
-func _on_chat_detection_area_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
-		Global.player_in_zone = false
-		$Dialogue.reset()
-
 
 func _on_timer_timeout() -> void:
 	$Timer.wait_time = choose([0.5, 1, 1.5])

@@ -20,7 +20,6 @@ func get_tile_name():
 	var tile_data = stair_tilemap.get_cell_tile_data(tile_pos)
 	
 	if tile_data:
-		print("hi")
 		var tile_name = tile_data.get_custom_data("stairs")
 		return tile_name
 	else:
@@ -49,7 +48,6 @@ func _physics_process(delta: float) -> void:
 		anim_sprite.stop()
 		
 	if "stair" in get_tile_name():
-		print("walking on stairs")
 		velocity 	*= 0.5
 
 	move_and_slide()

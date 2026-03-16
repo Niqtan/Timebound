@@ -2,6 +2,16 @@ extends Node2D
 
 # List of scenes
 @onready var chess_mini_game_scene = Constants.PACKED_MINI_GAME_SCENE_PATHS.mini_chess_game
+@onready var game_map = $GameMap
+
+var tilemaps = []
+
+var min_x = INF
+var min_y = INF
+var max_x = -INF
+var max_y = -INF
+
+var tile_size
 
 const maximum_energy: int = 100
 
@@ -14,9 +24,31 @@ var current_scene = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
+	var tilemaps = [
+		game_map.get_node("Design"),
+		game_map.get_node("Furniture"),
+		game_map.get_node("Floor")
+	]
+	
+	tile_size = tilemaps[2].tile_set.tile_size
+	
+	for tm in tilemaps:
+		var rect = tm.get_used_rect()
+		
+		min_x = min(min_x, rect.position.x)
+		min_y = min(max_y, rect.position.y)
+		max_x = max(max_x, rect.position.x + rect.size.x)
+		max_y = max(max_y, rect.position.y + rect.size.y)
+	
+	var left = min_x * tile_size.x
+	var top = min_y * tile_size.y
+	var right = max_x * tile_size.x
+	var bottom = max_y * tile_size.y
+	
+	$Player/Camera2D.limit_left = left
+	$Player/Camera2D.limit_top = top
+	$Player/Camera2D.limit_right = right
+	$Player/Camera2D.limit_bottom = bottom
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -1,10 +1,10 @@
-[gd_scene load_steps=84 format=3 uid="uid://yg566tajuknf"]
+[gd_scene load_steps=83 format=3 uid="uid://yg566tajuknf"]
 
 [ext_resource type="Texture2D" uid="uid://ck78sijatkyq2" path="res://Resources/Characters/CharacterModel/Character Model.png" id="1_7afyc"]
 [ext_resource type="Script" uid="uid://t8xl1b6ukec3" path="res://Scenes/NPCScenes/npc.gd" id="1_48xtc"]
 [ext_resource type="Texture2D" uid="uid://cj5rqb2pj7y54" path="res://Resources/Characters/Outfits/Outfit5.png" id="3_12d0n"]
 [ext_resource type="Texture2D" uid="uid://chofk5by8t431" path="res://Resources/Characters/Hair/Hairs.png" id="3_48xtc"]
-[ext_resource type="PackedScene" uid="uid://dk2smwijcagky" path="res://Scenes/DialogueScenes/dialogue.tscn" id="5_12d0n"]
+[ext_resource type="PackedScene" uid="uid://cqfbvta5vefa5" path="res://Scenes/DialogueScenes/interactable.tscn" id="5_12d0n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54hq1"]
 atlas = ExtResource("1_7afyc")
@@ -604,11 +604,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7afyc"]
 radius = 8.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_48xtc"]
-radius = 26.019224
-
 [node name="NPC" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
 script = ExtResource("1_48xtc")
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
@@ -628,18 +624,9 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_7afyc")
 
-[node name="chat_detection_area" type="Area2D" parent="."]
-collision_layer = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
-shape = SubResource("CircleShape2D_48xtc")
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Dialogue" parent="." instance=ExtResource("5_12d0n")]
+[node name="Interactable" parent="." instance=ExtResource("5_12d0n")]
 
-[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
-[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="dialogue_finished" from="Dialogue" to="." method="_on_dialogue_dialogue_finished"]

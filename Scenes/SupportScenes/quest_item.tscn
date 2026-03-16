@@ -1,11 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://da3g62073tpiu"]
+[gd_scene load_steps=5 format=3 uid="uid://da3g62073tpiu"]
 
-[ext_resource type="Texture2D" uid="uid://dfqfcl1bxeowl" path="res://Resources/Tilemap/Home/Cupboard-Sheet.png" id="1_e01s0"]
+[ext_resource type="Script" uid="uid://m43vtnvuko6n" path="res://Scenes/SupportScenes/quest_item.gd" id="1_e01s0"]
+[ext_resource type="Texture2D" uid="uid://dkbi3e7xb78pm" path="res://Resources/Chess/pixel chess_v1.2/boards/board_persp_04.png" id="2_s3vrn"]
+[ext_resource type="PackedScene" uid="uid://cqfbvta5vefa5" path="res://Scenes/DialogueScenes/interactable.tscn" id="3_ng8ei"]
 
-[node name="QuestItem" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3vrn"]
+size = Vector2(28, 21)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_e01s0")
+[node name="QuestItem" type="StaticBody2D"]
+script = ExtResource("1_e01s0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 13.5)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_s3vrn")
+
+[node name="QuestSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_s3vrn")
 centered = false
-region_enabled = true
 region_rect = Rect2(18, 16, 33, 38)
+
+[node name="Interactable" parent="." instance=ExtResource("3_ng8ei")]

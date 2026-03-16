@@ -17,7 +17,15 @@ position = Vector2(49, 127)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="QuestItem" parent="." instance=ExtResource("3_qjdn2")]
-position = Vector2(98, 210)
+position = Vector2(232, 77)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="QuestItem"]
+offset_left = -1.0
+offset_top = 27.0
+offset_right = 144.76276
+offset_bottom = 67.0
+scale = Vector2(0.295, 0.295)
+text = "play some chess!"
 
 [node name="NPC" parent="." instance=ExtResource("4_cidb5")]
 position = Vector2(114, 294)
