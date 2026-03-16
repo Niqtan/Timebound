@@ -49,6 +49,7 @@ func _ready() -> void:
 	$Player/Camera2D.limit_top = top
 	$Player/Camera2D.limit_right = right
 	$Player/Camera2D.limit_bottom = bottom
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -81,9 +82,3 @@ func check_stats():
 func force_rest():
 	print("Player is exhausted. forcing rest")
 	energy += 30
-
-func change_mini_game(mini_game: String):
-	
-	if mini_game == "chess":
-		current_scene = chess_mini_game_scene.instantiate()
-		add_child(current_scene)
