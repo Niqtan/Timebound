@@ -13,7 +13,7 @@ var black_queen_pos = Vector2i(0, 4)
 
 var queen_piece
 
-var board_size = 32 * 8
+var board_size = TILE_SIZE * 8
 
 var selected = false
 
@@ -24,10 +24,11 @@ func world_to_board(pos: Vector2):
 	return Vector2i(pos / TILE_SIZE)
 
 func _ready() -> void:
-	var screen_size = get_viewport_rect().size
+	var viewport_size = min(get_viewport_rect().size.x, get_viewport_rect().size.y)
 	
-	$Camera2D.zoom = Vector2(0.7, 0.7)
-	$Camera2D.position = Vector2(board_size/2, board_size /2)
+	var zoom_factor = viewport_size / board_size
+	
+	$Camera2D.zoom = Vector2(0.7 / zoom_factor, 0.7 / zoom_factor)
 		
 	spawn_piece(WHITE_KING, white_king_pos)
 	spawn_piece(BLACK_QUEEN, black_queen_pos)
@@ -60,11 +61,17 @@ func _input(event):
 					black_queen_pos = tile
 					move_queen()
 					selected = true
+	
+	check_winning_conditions()
 
 func move_queen():
 	queen_piece.position = board_to_world(black_queen_pos) + Vector2i(15, 10)
 	
-func is_valid_queen_move(from: Vector2i, to: Vector2i) -> bool:
+func is_valid_queen_move(from: Vector2i, to: Vector2i, ignore_king = false) -> bool:
+	
+	if to == white_king_pos and not ignore_king:
+		return false
+	
 	if from == to:
 		return false
 	
@@ -80,4 +87,14 @@ func is_valid_queen_move(from: Vector2i, to: Vector2i) -> bool:
 	if abs(from.x - to.x) == abs(from.y - to.y):
 		return true
 	
+	return false
+	
+func is_king_check() -> bool:
+	return is_valid_queen_move(black_queen_pos, white_king_pos, true)
+
+func check_winning_conditions() -> bool:
+	if is_king_check():
+		print("King is in check!")
+		return true
+		
 	return false

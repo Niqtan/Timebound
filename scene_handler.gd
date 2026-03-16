@@ -1,7 +1,7 @@
 extends Node2D
 
 # List of scenes
-@onready var chess_mini_game_scene = Constants.PACKED_MINI_GAME_SCENE_PATHS.mini_chess
+@onready var chess_mini_game_scene = Constants.PACKED_MINI_GAME_SCENE_PATHS.mini_chess_game
 
 const maximum_energy: int = 100
 
