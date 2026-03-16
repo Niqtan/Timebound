@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://csjobk05en2j1"]
+
+[ext_resource type="PackedScene" uid="uid://dai4u4isdherd" path="res://Scenes/MiniGameScenes/chess_map.tscn" id="1_daxkk"]
+[ext_resource type="Script" uid="uid://cylcl1ybco4aq" path="res://Scenes/MiniGameScenes/main_chess_game.gd" id="1_l4rp5"]
+
+[node name="MainChessGame" type="Node2D"]
+script = ExtResource("1_l4rp5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(128, 128)
+zoom = Vector2(0.7, 0.7)
+
+[node name="ChessMap" parent="." instance=ExtResource("1_daxkk")]
+
+[node name="Pieces" type="Node2D" parent="."]

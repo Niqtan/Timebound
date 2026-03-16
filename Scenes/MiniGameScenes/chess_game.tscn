@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://o2bjba4bg86p"]
+
+[ext_resource type="Script" uid="uid://hbdekqpiffwn" path="res://Scenes/MiniGameScenes/chess_game.gd" id="1_5vgyt"]
+
+[node name="ChessGame" type="ColorRect"]
+custom_minimum_size = Vector2(32, 32)
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_5vgyt")
+dark = true

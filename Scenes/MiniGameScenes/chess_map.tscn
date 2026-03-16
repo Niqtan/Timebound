@@ -1,0 +1,296 @@
+[gd_scene load_steps=2 format=3 uid="uid://dai4u4isdherd"]
+
+[ext_resource type="PackedScene" uid="uid://o2bjba4bg86p" path="res://Scenes/MiniGameScenes/chess_game.tscn" id="1_p5fxb"]
+
+[node name="ChessMap" type="VBoxContainer"]
+offset_right = 256.0
+offset_bottom = 256.0
+theme_override_constants/separation = 0
+
+[node name="rank1" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="a1" parent="rank1" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="b1" parent="rank1" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="c1" parent="rank1" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="d1" parent="rank1" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="e1" parent="rank1" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="f1" parent="rank1" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="g1" parent="rank1" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="h1" parent="rank1" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="rank2" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="a2" parent="rank2" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="b2" parent="rank2" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="c2" parent="rank2" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="d2" parent="rank2" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="e2" parent="rank2" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="f2" parent="rank2" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="g2" parent="rank2" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="h2" parent="rank2" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="rank3" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="a1" parent="rank3" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="b1" parent="rank3" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="c1" parent="rank3" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="d1" parent="rank3" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="e1" parent="rank3" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="f1" parent="rank3" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="g1" parent="rank3" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="h1" parent="rank3" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="rank4" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="a2" parent="rank4" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="b2" parent="rank4" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="c2" parent="rank4" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="d2" parent="rank4" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="e2" parent="rank4" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="f2" parent="rank4" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="g2" parent="rank4" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="h2" parent="rank4" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="rank5" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="a1" parent="rank5" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="b1" parent="rank5" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="c1" parent="rank5" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="d1" parent="rank5" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="e1" parent="rank5" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="f1" parent="rank5" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="g1" parent="rank5" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="h1" parent="rank5" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="rank6" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="a2" parent="rank6" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="b2" parent="rank6" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="c2" parent="rank6" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="d2" parent="rank6" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="e2" parent="rank6" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="f2" parent="rank6" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="g2" parent="rank6" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="h2" parent="rank6" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="rank7" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="a1" parent="rank7" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="b1" parent="rank7" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="c1" parent="rank7" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="d1" parent="rank7" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="e1" parent="rank7" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="f1" parent="rank7" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="g1" parent="rank7" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="h1" parent="rank7" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="rank8" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="a2" parent="rank8" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="b2" parent="rank8" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="c2" parent="rank8" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="d2" parent="rank8" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="e2" parent="rank8" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="f2" parent="rank8" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+
+[node name="g2" parent="rank8" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
+color = Color(1, 1, 1, 1)
+dark = false
+
+[node name="h2" parent="rank8" instance=ExtResource("1_p5fxb")]
+layout_mode = 2
