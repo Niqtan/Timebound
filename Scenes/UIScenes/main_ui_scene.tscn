@@ -1,14 +1,86 @@
-[gd_scene format=3 uid="uid://bhw14fg0fdyb3"]
+[gd_scene load_steps=6 format=3 uid="uid://bhw14fg0fdyb3"]
+
+[ext_resource type="Texture2D" uid="uid://o45jxfhcforv" path="res://Resources/Statistics/Star.png" id="1_ouwkp"]
+[ext_resource type="Texture2D" uid="uid://bx877k5wfpgnk" path="res://Resources/Statistics/16x16_emoji_asset_pack_v1.1.png" id="1_v875g"]
+[ext_resource type="Texture2D" uid="uid://bfkmd10vjbi0a" path="res://Resources/Statistics/pixel-game-progress-bars-8-bit-indicators-health-stamina_158677-450-removebg-preview.png" id="2_k5wrc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v875g"]
+atlas = ExtResource("1_v875g")
+region = Rect2(17, 1, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5wrc"]
+atlas = ExtResource("2_k5wrc")
+region = Rect2(33, 345, 92, 32)
 
 [node name="MainUIScene" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Statistics" type="MarginContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_left = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Statistics"]
+layout_mode = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Happiness" type="HBoxContainer" parent="Control/Statistics/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Statistics/HBoxContainer/Happiness"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_v875g")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Statistics/HBoxContainer/Happiness"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_k5wrc")
+stretch_mode = 5
+
+[node name="Energy" type="HBoxContainer" parent="Control/Statistics/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Statistics/HBoxContainer/Energy"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/Statistics/HBoxContainer/Energy"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_k5wrc")
+stretch_mode = 5
+
+[node name="Skill" type="HBoxContainer" parent="Control/Statistics/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SkillStarImg" type="TextureRect" parent="Control/Statistics/HBoxContainer/Skill"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_ouwkp")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Statistics/HBoxContainer/Skill"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = SubResource("AtlasTexture_k5wrc")
+stretch_mode = 5

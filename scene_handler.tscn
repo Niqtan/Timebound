@@ -1,13 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://rn177ewfbjv5"]
+[gd_scene load_steps=7 format=3 uid="uid://rn177ewfbjv5"]
 
 [ext_resource type="Script" uid="uid://dg57c3c13f7d3" path="res://scene_handler.gd" id="1_1lbnm"]
 [ext_resource type="PackedScene" uid="uid://cm4vsg4h372xi" path="res://Scenes/SupportScenes/game_map.tscn" id="1_8qim7"]
 [ext_resource type="PackedScene" uid="uid://cgkrephbinqn2" path="res://Scenes/PlayerScenes/player.tscn" id="2_sy2fw"]
 [ext_resource type="PackedScene" uid="uid://da3g62073tpiu" path="res://Scenes/SupportScenes/quest_item.tscn" id="3_qjdn2"]
 [ext_resource type="PackedScene" uid="uid://yg566tajuknf" path="res://Scenes/NPCScenes/npc.tscn" id="4_cidb5"]
+[ext_resource type="PackedScene" uid="uid://bhw14fg0fdyb3" path="res://Scenes/UIScenes/main_ui_scene.tscn" id="6_rp770"]
 
 [node name="SceneHandler" type="Node2D"]
 script = ExtResource("1_1lbnm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainUIScene" parent="CanvasLayer" instance=ExtResource("6_rp770")]
+scale = Vector2(0.4, 0.4)
+transform = Transform2D(0.4, 0, 0, 0.4, 0, 0)
 
 [node name="GameMap" parent="." instance=ExtResource("1_8qim7")]
 

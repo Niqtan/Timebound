@@ -36,7 +36,7 @@ func _ready() -> void:
 		var rect = tm.get_used_rect()
 		
 		min_x = min(min_x, rect.position.x)
-		min_y = min(max_y, rect.position.y)
+		min_y = min(min_y, rect.position.y)
 		max_x = max(max_x, rect.position.x + rect.size.x)
 		max_y = max(max_y, rect.position.y + rect.size.y)
 	
