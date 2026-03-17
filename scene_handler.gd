@@ -13,13 +13,6 @@ var max_y = -INF
 
 var tile_size
 
-const maximum_energy: int = 100
-
-# Standard happiness and energy
-var energy: int = 50
-var happiness: int = 0
-var skill: int = 0
-
 var current_scene = null
 
 # Called when the node enters the scene tree for the first time.
@@ -60,25 +53,30 @@ func _process(delta: float) -> void:
 # Likewise, if their stats are high, then there should be some sort of benefit
 
 func change_stats(energy_gain: int, skill_gain: int, happiness_gain: int):
-	energy += energy_gain
-	skill += skill_gain
-	happiness += happiness_gain
+		Global.energy += energy_gain
+		Global.skill += skill_gain
+		Global.happiness += happiness_gain
+		
+		Global.energy = clamp(Global.energy, 0, 100)
+		Global.happiness = clamp(Global.happiness, 0, 100)
+		Global.skill = clamp(Global.skill, 0, 100)
+		
+		$CanvasLayer/MainUIScene.update_happiness_bar()
+		$CanvasLayer/MainUIScene.update_energy_bar()
+		$CanvasLayer/MainUIScene.update_skill_bar()
+		
+		check_stats()
 	
-	energy = clamp(energy, 0, 100)
-	happiness = clamp(happiness, 0, 100)
-	skill = clamp(skill, 0, 100)
-	
-	check_stats()
-	
-func check_stats():
-	if energy <= 0:
+func check_stats():	
+	if Global.energy <= 0:
 		force_rest()
-	if happiness <= 10:
+	if Global.happiness <= 10:
 		# Maybe they're depressed or something?
 		pass
-	if skill >= 50:
+	if Global.skill >= 50:
 		# Maybe we unlock a new skill
 		pass
+	
 func force_rest():
 	print("Player is exhausted. forcing rest")
-	energy += 30
+	Global.energy += 30

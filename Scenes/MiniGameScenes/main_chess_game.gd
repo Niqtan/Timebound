@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var stats_manager = get_node("res://scene_handler.tscn")
+
 const PIECE_SCENE = Constants.PACKED_MINI_GAME_SCENE_PATHS["chess_piece"]
 const WHITE_KING = preload("res://Resources/Chess/pixel chess_v1.2/16x32 pieces/W_King.png")
 const BLACK_QUEEN = preload("res://Resources/Chess/pixel chess_v1.2/16x32 pieces/B_Queen.png")
@@ -95,6 +97,7 @@ func is_king_check() -> bool:
 func check_winning_conditions() -> bool:
 	if is_king_check():
 		print("King is in check!")
+		stats_manager.change_stats(10, 5, 3)
 		get_tree().change_scene_to_packed(Constants.PACKED_GENERAL_SCENES.main_scene)
 		return true
 		
