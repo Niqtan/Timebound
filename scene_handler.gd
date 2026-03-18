@@ -2,7 +2,9 @@ extends Node2D
 
 # List of scenes
 @onready var chess_mini_game_scene = Constants.PACKED_MINI_GAME_SCENE_PATHS.chess
-@onready var game_map = $GameMap
+@onready var game_map = get_tree().current_scene.get_node("GameMap")
+@onready var camera2D = get_tree().current_scene.get_node("Player/Camera2D")
+@onready var statistics_bar = get_tree().current_scene.get_node("CanvasLayer/MainUIScene")
 
 var tilemaps = []
 
@@ -38,10 +40,10 @@ func _ready() -> void:
 	var right = max_x * tile_size.x
 	var bottom = max_y * tile_size.y
 	
-	$Player/Camera2D.limit_left = left
-	$Player/Camera2D.limit_top = top
-	$Player/Camera2D.limit_right = right
-	$Player/Camera2D.limit_bottom = bottom
+	camera2D.limit_left = left
+	camera2D.limit_top = top
+	camera2D.limit_right = right
+	camera2D.limit_bottom = bottom
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -61,9 +63,9 @@ func change_stats(energy_gain: int, skill_gain: int, happiness_gain: int):
 		Global.happiness = clamp(Global.happiness, 0, 100)
 		Global.skill = clamp(Global.skill, 0, 100)
 		
-		$CanvasLayer/MainUIScene.update_happiness_bar()
-		$CanvasLayer/MainUIScene.update_energy_bar()
-		$CanvasLayer/MainUIScene.update_skill_bar()
+		statistics_bar.update_happiness_bar()
+		statistics_bar.update_energy_bar()
+		statistics_bar.update_skill_bar()
 		
 		check_stats()
 	

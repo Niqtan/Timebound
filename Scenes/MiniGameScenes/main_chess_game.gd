@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var stats_manager = get_node("res://scene_handler.tscn")
-
 const PIECE_SCENE = Constants.PACKED_MINI_GAME_SCENE_PATHS["chess_piece"]
 const WHITE_KING = preload("res://Resources/Chess/pixel chess_v1.2/16x32 pieces/W_King.png")
 const BLACK_QUEEN = preload("res://Resources/Chess/pixel chess_v1.2/16x32 pieces/B_Queen.png")
@@ -16,7 +14,8 @@ var queen_piece
 
 var board_size = TILE_SIZE * 8
 
-var selected = false
+var dragging = false
+var dragged_piece = null
 
 func board_to_world(pos: Vector2i):
 	return pos * TILE_SIZE
@@ -35,6 +34,10 @@ func _ready() -> void:
 	spawn_piece(WHITE_KING, white_king_pos)
 	spawn_piece(BLACK_QUEEN, black_queen_pos)
 
+func _process(delta: float) -> void:
+	if dragged_piece and dragging:
+		dragged_piece.global_position = $Camera2D.get_global_mouse_position()
+
 func spawn_piece(texture: Texture2D, board_pos: Vector2i):
 	var p = load(PIECE_SCENE).instantiate()
 	pieces.add_child(p)
@@ -47,23 +50,26 @@ func spawn_piece(texture: Texture2D, board_pos: Vector2i):
 		queen_piece = p
 
 func _input(event):
-	if event is InputEventMouseButton && event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 			var world_pos = $Camera2D.get_global_mouse_position()
 			var tile = world_to_board(world_pos)
-			print(tile)
-			print(black_queen_pos)
-			if not selected:
+			if event.pressed:
 				if tile == black_queen_pos:
-					selected = true
+					dragging = true
+					dragged_piece = queen_piece
 					print("queen has been selected")
 			else:
-				if is_valid_queen_move(black_queen_pos, tile):
-					print("valid queen move!")
-					black_queen_pos = tile
-					move_queen()
-					selected = true
-	
+				if dragged_piece and dragging:
+					if is_valid_queen_move(black_queen_pos, tile):
+						print("valid queen move!")
+						black_queen_pos = tile
+						move_queen()
+					else:
+						dragged_piece.position = board_to_world(black_queen_pos) + Vector2i(15, 10)
+						print("invalid move!")
+						
+					dragging = false
+					dragged_piece = null	
 	check_winning_conditions()
 
 func move_queen():
@@ -97,8 +103,8 @@ func is_king_check() -> bool:
 func check_winning_conditions() -> bool:
 	if is_king_check():
 		print("King is in check!")
-		stats_manager.change_stats(10, 5, 3)
 		get_tree().change_scene_to_packed(Constants.PACKED_GENERAL_SCENES.main_scene)
+		SceneHandler.call_deferred("change_stats", 10, 5, 3)
 		return true
 		
 	return false
