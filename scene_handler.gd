@@ -17,6 +17,8 @@ var tile_size
 
 var current_scene = null
 
+signal stats_changed(energy, skill, happiness)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var tilemaps = [
@@ -54,23 +56,21 @@ func _process(delta: float) -> void:
 
 # Likewise, if their stats are high, then there should be some sort of benefit
 
-func change_stats(energy_gain: int, skill_gain: int, happiness_gain: int):
-		Global.energy += energy_gain
-		Global.skill += skill_gain
-		Global.happiness += happiness_gain
+func change_stats(energy_delta: int, skill_delta: int, happiness_delta: int):
+		Global.energy += energy_delta
+		Global.skill += skill_delta
+		Global.happiness += happiness_delta
 		
 		Global.energy = clamp(Global.energy, 0, 100)
 		Global.happiness = clamp(Global.happiness, 0, 100)
 		Global.skill = clamp(Global.skill, 0, 100)
 		
-		statistics_bar.update_happiness_bar()
-		statistics_bar.update_energy_bar()
-		statistics_bar.update_skill_bar()
+		emit_signal("stats_changed", Global.energy, Global.skill, Global.happiness)
 		
 		check_stats()
 	
 func check_stats():	
-	if Global.energy <= 0:
+	if Global.energy <= 20:
 		force_rest()
 	if Global.happiness <= 10:
 		# Maybe they're depressed or something?

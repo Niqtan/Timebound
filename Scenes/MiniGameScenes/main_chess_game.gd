@@ -70,7 +70,8 @@ func _input(event):
 						
 					dragging = false
 					dragged_piece = null	
-	check_winning_conditions()
+					
+					check_winning_conditions()
 
 func move_queen():
 	queen_piece.position = board_to_world(black_queen_pos) + Vector2i(15, 10)
@@ -103,8 +104,8 @@ func is_king_check() -> bool:
 func check_winning_conditions() -> bool:
 	if is_king_check():
 		print("King is in check!")
+		SceneHandler.call_deferred("change_stats", -10, 10, 10)
 		get_tree().change_scene_to_packed(Constants.PACKED_GENERAL_SCENES.main_scene)
-		SceneHandler.call_deferred("change_stats", 10, 5, 3)
 		return true
 		
 	return false

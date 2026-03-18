@@ -13,8 +13,8 @@ script = ExtResource("1_1lbnm")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainUIScene" parent="CanvasLayer" instance=ExtResource("6_rp770")]
-scale = Vector2(0.4, 0.4)
-transform = Transform2D(0.4, 0, 0, 0.4, 0, 0)
+scale = Vector2(0.35, 0.4)
+transform = Transform2D(0.35, 0, 0, 0.4, 0, 0)
 
 [node name="GameMap" parent="." instance=ExtResource("1_8qim7")]
 
