@@ -17,10 +17,14 @@ var tile_size
 
 var current_scene = null
 
+var is_resting
+
 signal stats_changed(energy, skill, happiness)
+signal force_rest_triggered
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	HintManager.show_label("I feel tired...", 3.0)
 	var tilemaps = [
 		game_map.get_node("Design"),
 		game_map.get_node("Furniture"),
@@ -81,4 +85,8 @@ func check_stats():
 	
 func force_rest():
 	print("Player is exhausted. forcing rest")
+	
 	Global.energy += 30
+
+func advance_day_phase():
+	pass

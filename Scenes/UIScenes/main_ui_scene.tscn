@@ -147,6 +147,12 @@ sprite_frames = SubResource("SpriteFrames_gi5kt")
 animation = &"full_default"
 frame_progress = 0.62855476
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Statistics/HBoxContainer/Happiness"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Happiness"
+
 [node name="Energy" type="HBoxContainer" parent="Control/Statistics/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -162,6 +168,13 @@ position = Vector2(105, 55)
 sprite_frames = SubResource("SpriteFrames_gi5kt")
 animation = &"full_default"
 frame_progress = 0.97685206
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Statistics/HBoxContainer/Energy"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Energy
+"
 
 [node name="Skill" type="HBoxContainer" parent="Control/Statistics/HBoxContainer"]
 layout_mode = 2
@@ -180,3 +193,9 @@ position = Vector2(105, 54)
 sprite_frames = SubResource("SpriteFrames_gi5kt")
 animation = &"full_default"
 frame_progress = 0.62855476
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Statistics/HBoxContainer/Skill"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Skill"

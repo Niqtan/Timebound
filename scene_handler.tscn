@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rn177ewfbjv5"]
+[gd_scene load_steps=8 format=3 uid="uid://rn177ewfbjv5"]
 
 [ext_resource type="Script" uid="uid://dg57c3c13f7d3" path="res://scene_handler.gd" id="1_1lbnm"]
 [ext_resource type="PackedScene" uid="uid://cm4vsg4h372xi" path="res://Scenes/SupportScenes/game_map.tscn" id="1_8qim7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://da3g62073tpiu" path="res://Scenes/SupportScenes/quest_item.tscn" id="3_qjdn2"]
 [ext_resource type="PackedScene" uid="uid://yg566tajuknf" path="res://Scenes/NPCScenes/npc.tscn" id="4_cidb5"]
 [ext_resource type="PackedScene" uid="uid://bhw14fg0fdyb3" path="res://Scenes/UIScenes/main_ui_scene.tscn" id="6_rp770"]
+[ext_resource type="PackedScene" uid="uid://ders130guae3t" path="res://Scenes/SupportScenes/hint_manager.tscn" id="7_a6qyh"]
 
 [node name="SceneHandler" type="Node2D"]
 script = ExtResource("1_1lbnm")
@@ -55,3 +56,19 @@ scale = Vector2(0.295, 0.295)
 text = "TIMEBOUND
 A GAME, DOCUMENTING NIQ's
 LIFE"
+
+[node name="HintManager" parent="." instance=ExtResource("7_a6qyh")]
+
+[node name="Control" type="Control" parent="HintManager"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 482.0
+offset_bottom = 376.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HintManager/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HintLabel" type="Label" parent="HintManager/Control/MarginContainer"]
+layout_mode = 2
