@@ -24,7 +24,9 @@ signal force_rest_triggered
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	HintManager.show_label("I feel tired...", 3.0)
+	await HintManager.show_label("TimeBound", 3.0)
+	await HintManager.show_label("press e to interact", 3.0)
+	await HintManager.show_label("press space to continue", 3.0)
 	var tilemaps = [
 		game_map.get_node("Design"),
 		game_map.get_node("Furniture"),

@@ -3,6 +3,8 @@ extends CanvasLayer
 @onready var hint_label: Label = $Control/MarginContainer/HintLabel
 var hints_shown: Dictionary = {}
 
+var is_showing := false
+
 func _ready() -> void:	
 	hint_label.visible = false
 	hint_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -14,9 +16,13 @@ func register_label(label: Label):
 	hint_label = label
 
 func show_label(text_to_show: String, duration: float = 2.5) -> void:
-	# Combine showing hint here once and multiple times
-	if hint_label.visible:
+	
+	if is_showing:
+		await get_tree().process_frame
+		await show_label(text_to_show, duration)
 		return
+		
+	is_showing = true
 	
 	hint_label.text = text_to_show
 	hint_label.modulate.a = 0
@@ -30,6 +36,10 @@ func show_label(text_to_show: String, duration: float = 2.5) -> void:
 	tween.tween_interval(duration)
 	tween.tween_property(hint_label, "modulate:a", 0.0, 0.3)
 	tween.tween_callback(func(): hint_label.visible = false)
+	
+	await tween.finished
+	
+	is_showing = false
 	
 func show_label_once(key: String, text_to_show: String, duration: float = 2.5) -> void:
 	if hints_shown.has(key):

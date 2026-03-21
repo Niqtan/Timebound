@@ -25,45 +25,28 @@ position = Vector2(49, 127)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="QuestItem" parent="." instance=ExtResource("3_qjdn2")]
-position = Vector2(232, 77)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="QuestItem"]
-offset_left = -1.0
-offset_top = 27.0
-offset_right = 144.76276
-offset_bottom = 67.0
-scale = Vector2(0.295, 0.295)
-text = "play some chess!"
+position = Vector2(232, 271)
 
 [node name="NPC" parent="." instance=ExtResource("4_cidb5")]
 position = Vector2(114, 294)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 30.999996
-offset_top = 265.0
-offset_right = 176.76276
-offset_bottom = 370.08475
+offset_left = 239.0
+offset_top = 112.0
+offset_right = 384.76276
+offset_bottom = 217.08475
 scale = Vector2(0.295, 0.295)
-text = "press e to interact
-press space to continue"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-offset_left = 31.999992
-offset_top = 36.0
-offset_right = 333.69495
-offset_bottom = 141.08475
-scale = Vector2(0.295, 0.295)
-text = "TIMEBOUND
-A GAME, DOCUMENTING NIQ's
-LIFE"
 
 [node name="HintManager" parent="." instance=ExtResource("7_a6qyh")]
 
 [node name="Control" type="Control" parent="HintManager"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 482.0
-offset_bottom = 376.0
+offset_left = 167.125
+offset_top = 70.275
+offset_right = 649.1248
+offset_bottom = 446.275
+scale = Vector2(0.3, 0.3)
 
 [node name="MarginContainer" type="MarginContainer" parent="HintManager/Control"]
 layout_mode = 0
@@ -72,3 +55,4 @@ offset_bottom = 40.0
 
 [node name="HintLabel" type="Label" parent="HintManager/Control/MarginContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
