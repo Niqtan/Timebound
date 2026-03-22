@@ -22,6 +22,7 @@ Global="*res://Singletons/global.gd"
 Constants="*res://Singletons/constants.gd"
 SceneHandler="*res://scene_handler.gd"
 HintManager="*res://Singletons/hint_manager.gd"
+InteractibleData="*res://Singletons/interactible_data.gd"
 
 [display]
 
@@ -63,6 +64,10 @@ LEFT_MOUSE_BUTTON={
 "deadzone": 0.2,
 "events": []
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
 
 [rendering]
 

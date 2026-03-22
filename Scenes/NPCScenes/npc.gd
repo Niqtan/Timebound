@@ -31,7 +31,6 @@ func _ready() -> void:
 	
 	var interactible_scene = Constants.PACKED_GENERAL_SCENES.interactible_scene.instantiate()
 	interactible_scene.dialogue_id = dialogue_id
-	interactible_scene.context = context
 	add_child(interactible_scene)
 	
 	interactible_scene.dialogue_finished.connect(_on_dialogue_dialogue_finished)

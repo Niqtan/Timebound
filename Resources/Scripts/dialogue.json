@@ -9,5 +9,15 @@
 	{"name": "chessboard", "text": "the chessboard on the ground"},
 	{"name": "You", "text": "hmm?"},
 	{"name": "chessboard", "text": "the chessboard invites you to play"},
-]
+],
+"tv": [
+	{"name": "TV", "text": "the tv lies... menacingly"},
+	{"name": "You", "text": "i'm kind of bored... so why not?"},
+	{"name": "TV", "text": "This will cost 10 energy but you will be happy."},
+],
+"sleep": [
+	{"name": "bed", "text": "a soft, cozy bed..."},
+	{"name": "You", "text": "mMMMmmmhmmm"},
+	{"name": "bed", "text": "energy reeks..."},
+],
 }

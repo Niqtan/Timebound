@@ -1,7 +1,6 @@
 extends Area2D
 
 @export var dialogue_id: String = ""
-@export var context: String = ""
 
 var player_in_zone = false
 
@@ -15,11 +14,12 @@ func _process(delta: float) -> void:
 		interact()
 	
 func _on_dialogue_finished():
-	emit_signal("dialogue_finished", context)
+	emit_signal("dialogue_finished")
 	
 func interact():
 	if dialogue_id != "":
 		$Dialogue.start(dialogue_id)
+		
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":

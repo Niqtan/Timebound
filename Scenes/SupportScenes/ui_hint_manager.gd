@@ -16,12 +16,14 @@ func register_label(label: Label):
 	hint_label = label
 
 func show_label(text_to_show: String, duration: float = 2.5) -> void:
+	if not is_inside_tree():
+		await ready
 	
 	if is_showing:
 		await get_tree().process_frame
-		await show_label(text_to_show, duration)
+		show_label(text_to_show, duration)
 		return
-		
+	
 	is_showing = true
 	
 	hint_label.text = text_to_show

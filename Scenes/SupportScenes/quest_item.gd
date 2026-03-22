@@ -13,12 +13,11 @@ func _ready() -> void:
 	
 	var interactible_scene = Constants.PACKED_GENERAL_SCENES.interactible_scene.instantiate()
 	interactible_scene.dialogue_id = dialogue_id
-	interactible_scene.context = context
 	add_child(interactible_scene)
 	
 	interactible_scene.dialogue_finished.connect(_on_dialogue_finished)
 
-func _on_dialogue_finished(context: String):
+func _on_dialogue_finished():
 	change_mini_game_scene(context)
 	
 func change_mini_game_scene(context: String) -> void:
@@ -33,4 +32,7 @@ func change_mini_game_scene(context: String) -> void:
 		_:
 			pass
 
-			
+
+func _on_chess_finished():
+	get_tree().change_scene_to_file("res://scene_handler.tscn")
+	
